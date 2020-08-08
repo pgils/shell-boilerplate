@@ -1,0 +1,12 @@
+#ifdef BASHSHELL
+#!/usr/bin/env bash
+#else
+#!/usr/bin/env sh
+#endif
+
+set -o nounset
+set -o errexit
+#ifdef BASHSHELL
+set -o pipefail
+IFS=$'\n\t'
+#endif
