@@ -1,0 +1,20 @@
+
+do_foo() {
+    print_info "performing foo."
+}
+
+do_bar() {
+    print_info "performing bar"
+}
+
+#ifdef BASHSHELL
+if [[ "${1}" =~ ^(foo|bar)$ ]]; then
+#else
+if echo "${1}" | grep -q "foo\|bar"; then
+#endif
+# call function and pass it all arguments
+    eval "do_${*}"
+else
+    print_usage
+    exit 1
+fi
