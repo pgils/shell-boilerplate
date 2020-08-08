@@ -3,13 +3,13 @@ SPP ?= ./spp.sh
 SHELLCHECK ?= shellcheck
 
 sh:
-	$(SPP) boilerplate.sh.in > $(OUTPUT)
+	$(DEF) $(SPP) boilerplate.sh.in > $(OUTPUT)
 
 sh-check: sh
 	$(SHELLCHECK) $(OUTPUT)
 
-bash:
-	BASHSHELL=1 $(SPP) boilerplate.sh.in > $(OUTPUT)
+bash: DEF = BASHSHELL=1
+bash: sh
 
 bash-check: bash
 	$(SHELLCHECK) $(OUTPUT)
