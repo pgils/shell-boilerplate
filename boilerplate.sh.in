@@ -1,0 +1,4 @@
+#include "head.sh.in"
+#include "cleanup.sh.in"
+#include "print.sh.in"
+#include "main.sh.in"
