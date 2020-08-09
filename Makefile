@@ -1,7 +1,7 @@
-OUTPUT ?= boilerplate.sh
-SPP ?= ./spp.sh
-SHELLCHECK ?= shellcheck
-SHELLS = sh bash
+OUTPUT      ?= boilerplate.sh
+SPP         ?= ./spp.sh
+SHELLCHECK  ?= shellcheck
+SHELLS       = sh bash
 
 .PHONY: $(SHELLS) check clean
 
