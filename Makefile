@@ -10,7 +10,7 @@ $(SHELLS):
 
 check: $(SHELLS:=-check) clean
 %-check: %
-	$(SHELLCHECK) $(OUTPUT)
+	$(SHELLCHECK) --shell=$* $(OUTPUT)
 
 clean:
 	rm -rf $(OUTPUT)
