@@ -50,4 +50,9 @@ process_file() {
     done < "${1}"
 }
 
+# define the target shell
+# TARGETSHELL=bash --> BASHSHELL=1
+[ -n "${TARGETSHELL:-}" ] \
+    && printf -v "${TARGETSHELL^^}SHELL" "1"
+
 process_file "${1}"
