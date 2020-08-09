@@ -1,20 +1,16 @@
 OUTPUT ?= boilerplate.sh
 SPP ?= ./spp.sh
 SHELLCHECK ?= shellcheck
+SHELLS = sh bash
 
-sh:
-	$(DEF) $(SPP) boilerplate.sh.in > $(OUTPUT)
+.PHONY: $(SHELLS) check clean
 
-sh-check: sh
+$(SHELLS):
+	SHELL=$@ $(SPP) boilerplate.sh.in > $(OUTPUT)
+
+check: $(SHELLS:=-check) clean
+%-check: %
 	$(SHELLCHECK) $(OUTPUT)
-
-bash: DEF = BASHSHELL=1
-bash: sh
-
-bash-check: bash
-	$(SHELLCHECK) $(OUTPUT)
-
-check: sh-check bash-check clean
 
 clean:
 	rm -rf $(OUTPUT)
