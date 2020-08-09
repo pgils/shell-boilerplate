@@ -6,7 +6,7 @@ SHELLS = sh bash
 .PHONY: $(SHELLS) check clean
 
 $(SHELLS):
-	SHELL=$@ $(SPP) boilerplate.sh.in > $(OUTPUT)
+	TARGETSHELL=$@ $(SPP) boilerplate.sh.in > $(OUTPUT)
 
 check: $(SHELLS:=-check) clean
 %-check: %
