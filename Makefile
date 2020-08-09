@@ -1,6 +1,6 @@
 OUTPUT      ?= boilerplate.sh
 SPP         ?= ./spp.sh
-SHELLCHECK  ?= shellcheck
+SHELLCHECK  ?= shellcheck --enable=all --severity=style
 SHELLS       = sh bash
 
 .PHONY: $(SHELLS) check clean
