@@ -1,5 +1,5 @@
 
-trap cleanup 0 1 2 3 6 15
+trap cleanup EXIT
 
 cleanup() {
     print_info "cleaning up"
