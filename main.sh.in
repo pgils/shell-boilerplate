@@ -8,9 +8,9 @@ do_bar() {
 }
 
 #ifdef BASHSHELL
-if [[ "${1}" =~ ^(foo|bar)$ ]]; then
+if [[ "${1:-}" =~ ^(foo|bar)$ ]]; then
 #else
-if echo "${1}" | grep -q "foo\|bar"; then
+if echo "${1:-}" | grep -q "foo\|bar"; then
 #endif
 # call function and pass it all arguments
     eval "do_${*}"
